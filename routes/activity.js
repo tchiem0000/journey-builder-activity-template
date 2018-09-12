@@ -66,10 +66,10 @@ exports.save = function (req, res) {
     //console.log( req.body );
     logData(req);
     
-    alert('Your value has been saved!');
-    alert(req);
-    alert(res);
-    
+    //test
+    console.log('Your value has been saved!');
+    console.log( req.body );
+   
     res.send(200, 'Save');
 };
 
