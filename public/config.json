@@ -2,73 +2,63 @@
     "workflowApiVersion": "1.1",
     "metaData": {
         "icon": "images/icon.png",
-        "iconSmall": "images/iconSmall.png",
-        "category": "message"
+        "transactionKeys": {
+            "0": {
+                "from": "Event Property",
+                "to": "DE_Name.DE_Property"
+            }
+        }
     },
-    "type": "REST",
-    "lang": {
+    "type": "Event",
+    "lang":{
         "en-US": {
-            "name": "Template",
-          "description": "A Template for a custom Journey Builder activity",
-          "step1Label": "Configure Activity"
+            "name": "Event (Workflow API v1.1)",
+            "description": "An example event using workflow API v1.1 format.",
+            "selectCountry": "Select Country",
+            "enterFirstName": "Enter First Name",
+            "enterLastName": "Enter Last Name",
+            "enterFavoriteFood": "Enter Favorite Food",
+            "countryCodeLabel": "Country Code",
+            "firstNameLabel": "First Name",
+            "lastNameLabel": "Last Name",
+            "favoriteFoodLabel": "Favorite Food",
+            "selectTransactionKeyMapping": "Transaction Key"
         }
     },
-    "arguments": {
-        "execute": {
-           "inArguments":[
-				{
-                    "emailAddress": "{{Contact.Attribute.CustomActivity.EmailAddress}}"
-                }									
-			],
-          "outArguments": [],
-          "url": "https://templatetest888.herokuapp.com/journeybuilder/execute",
-           "verb": "POST",
-            "body": "",
-            "header": "",
-            "format": "json",
-            "useJwt": true,
-            "timeout": 10000
-        }
-    },
-    "configurationArguments": {
-      "applicationExtensionKey": "09855d28-224d-4df5-8ad2-47952d727f1d",
-      "save": {
-        "url": "https://templatetest888.herokuapp.com/journeybuilder/save",
-          "verb": "POST",
-        "useJwt": true
-       },
-       "publish": {
-        "url": "https://templatetest888.herokuapp.com/journeybuilder/publish",
-           "verb": "POST",
-        "useJwt": true
-       },
-      "stop": {
-        "url": "https://templatetest888.herokuapp.com/journeybuilder/stop",
-           "verb": "POST",
-        "useJwt": true
-      },
-      "validate": {
-        "url": "https://templatetest888.herokuapp.com/journeybuilder/validate",
-        "verb": "POST",
-        "useJwt": true
-      }
-    },
+    "configurationArguments": {},
+    "filterExpressionEnabled": false,
     "wizardSteps": [
-        { "label": "Configure Activity", "key": "step1" }
+        { "key": "selectCountry", "label": "selectCountry" },
+        { "key": "enterFirstName", "label": "enterFirstName" },
+        { "key": "enterLastName", "label": "enterLastName" },
+        { "key": "enterFavoriteFood", "label": "enterFavoriteFood", "active": false },
+        { "key": "selectTransactionKeyMapping", "label": "selectTransactionKeyMapping" }
     ],
     "userInterfaces": {
         "configModal": {
-            "height": 400,
-            "width": 1000,
-          "fullscreen": false
-        }
-    },
-    "schema": {
-        "arguments": {
-            "execute": {
-                "inArguments": [],
-                "outArguments": []
+            "url": "index.html"
+        },
+        "summary": [
+            {
+                "valuePath": "arguments.countryCode",
+                "label": "countryCodeLabel"
+            },
+            {
+                "valuePath": "arguments.firstName",
+                "label": "firstNameLabel"
+            },
+            {
+                "valuePath": "arguments.lastName",
+                "label": "lastNameLabel"
+            },
+            {
+                "valuePath": "arguments.favoriteFood",
+                "label": "favoriteFoodLabel"
+            },
+             {
+                "valuePath": "metaData.transactionKeys",
+                "label": "Transaction Key"
             }
-        }
+        ]
     }
 }
