@@ -179,6 +179,8 @@ define([
         var name = $('#select1').find('option:selected').html();
         var value = getMessage();
 
+        alert('you selected ' + value + ', good choice!');
+        
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property
