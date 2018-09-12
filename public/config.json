@@ -1,76 +1,90 @@
 {
-	"workflowApiVersion": "1.1",
-	"metaData": {
-		"icon": "images/smily.png",
-		"category": "message"
-	},
-	"type": "myActivityType",
-	"lang": {
-		"en-US": {
-			"name": "Custom Activity test",
-			"description": "A custom Journey Builder activity using workflow API v1.1 format."
-		}
-	},
-	"arguments": {
-		"execute": {
-			"inArguments": [{
-				"myInArgument": "inArgument coming from iframe"
-			}],
-			"outArguments": [],
-			"url": "https://templatetest888.herokuapp.com/journeybuilder/execute"
-		}
-	},
-	"configurationArguments": {
-		"save": {
-			"url": "https://templatetest888.herokuapp.com/journeybuilder/save"
-		},
-		"publish": {
-			"url": "https://templatetest888.herokuapp.com/journeybuilder/publish"
-		},
-		"validate": {
-			"url": "https://templatetest888.herokuapp.com/journeybuilder/validate"
-		},
-		"stop": {
-			"url": "https://templatetest888.herokuapp.com/journeybuilder/stop"
-		}
-	},
-	"wizardSteps": [{
-			"label": "Step 1",
-			"key": "step1"
-		},
-		{
-			"label": "Step 2",
-			"key": "step2"
-		},
-		{
-			"label": "Step 3",
-			"key": "step3"
-		},
-		{
-			"label": "Step 4",
-			"key": "step4",
-			"active": false
-		}
-	],
-	"userInterfaces": {
-		"configModal": {
-			"height": 200,
-			"width": 300,
-			"fullscreen": true
-		}
-	},
-	"schema": {
-		"arguments": {
-			"execute": {
-				"inArguments": [{
-					"myInArgument": {
-						"dataType": "<some data type>",
-						"isNullable": false,
-						"direction": "in"
-					}
-				}],
-				"outArguments": []
-			}
-		}
-	}
+    "workflowApiVersion": "1.1",
+    "metaData": {
+       "icon": "images/smily.png",
+       "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+       "en-US": {
+           "name": "REST Activity 2",
+           "description": "An example REST activity using workflow API v1.1 format."
+       }
+    },
+    "arguments": {
+        "execute": {
+            "inArguments": [
+                {
+                    "emailAddress": "{{InteractionDefaults.Email}}"
+                },
+                {
+                    "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+                }
+            ],
+            "outArguments": [
+                {
+                    "foundSignupDate": ""
+                }
+            ],
+            "url": "https://templatetest888.herokuapp.com/journeybuilder/execute"
+        }
+    },
+    "configurationArguments": {
+       "save": {
+           "url": "https://templatetest888.herokuapp.com/journeybuilder/save"
+       },
+       "publish": {
+           "url": "https://templatetest888.herokuapp.com/journeybuilder/publish"
+       },
+       "validate": {
+           "url": "https://templatetest888.herokuapp.com/journeybuilder/validate"
+       },
+       "stop": {
+           "url": "https://templatetest888.herokuapp.com/journeybuilder/stop"
+       }
+    },
+    "wizardSteps": [
+       { "label": "Step 1", "key": "step1" },
+       { "label": "Step 2", "key": "step2" },
+       { "label": "Step 3", "key": "step3" },
+       { "label": "Step 4", "key": "step4", "active": false }
+    ],
+    "userInterfaces": {
+       "configModal": {
+           "height": 200,
+           "width": 300,
+           "fullscreen": true
+       }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [
+                    {
+                        "phoneNumber": {
+                            "dataType": "Phone",
+                            "isNullable": false,
+                            "direction": "in"   
+                        }
+                    },
+                    {
+                        "emailAddress": {
+                            "dataType": "Email",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    }
+                ],
+                "outArguments": [
+                    {
+                        "foundSignupDate": {
+                            "dataType": "Date",
+                            "direction": "out",
+                            "access": "visible"
+                        }
+                    }
+                ]
+            }
+        }
+    }
 }
