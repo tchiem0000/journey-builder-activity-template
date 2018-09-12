@@ -1,64 +1,76 @@
 {
-    "workflowApiVersion": "1.1",
-    "metaData": {
-        "icon": "images/icon.png",
-        "transactionKeys": {
-            "0": {
-                "from": "Event Property",
-                "to": "DE_Name.DE_Property"
-            }
-        }
-    },
-    "type": "Event",
-    "lang":{
-        "en-US": {
-            "name": "Event (Workflow API v1.1)",
-            "description": "An example event using workflow API v1.1 format.",
-            "selectCountry": "Select Country",
-            "enterFirstName": "Enter First Name",
-            "enterLastName": "Enter Last Name",
-            "enterFavoriteFood": "Enter Favorite Food",
-            "countryCodeLabel": "Country Code",
-            "firstNameLabel": "First Name",
-            "lastNameLabel": "Last Name",
-            "favoriteFoodLabel": "Favorite Food",
-            "selectTransactionKeyMapping": "Transaction Key"
-        }
-    },
-    "configurationArguments": {},
-    "filterExpressionEnabled": false,
-    "wizardSteps": [
-        { "key": "selectCountry", "label": "selectCountry" },
-        { "key": "enterFirstName", "label": "enterFirstName" },
-        { "key": "enterLastName", "label": "enterLastName" },
-        { "key": "enterFavoriteFood", "label": "enterFavoriteFood", "active": false },
-        { "key": "selectTransactionKeyMapping", "label": "selectTransactionKeyMapping" }
-    ],
-    "userInterfaces": {
-        "configModal": {
-            "url": "index.html"
-        },
-        "summary": [
-            {
-                "valuePath": "arguments.countryCode",
-                "label": "countryCodeLabel"
-            },
-            {
-                "valuePath": "arguments.firstName",
-                "label": "firstNameLabel"
-            },
-            {
-                "valuePath": "arguments.lastName",
-                "label": "lastNameLabel"
-            },
-            {
-                "valuePath": "arguments.favoriteFood",
-                "label": "favoriteFoodLabel"
-            },
-             {
-                "valuePath": "metaData.transactionKeys",
-                "label": "Transaction Key"
-            }
-        ]
-    }
+	"workflowApiVersion": "1.1",
+	"metaData": {
+		"icon": "images/sms.png",
+		"category": "message"
+	},
+	"type": "myActivityType",
+	"lang": {
+		"en-US": {
+			"name": "Custom Activity (Workflow API v1.1)",
+			"description": "A custom Journey Builder activity using workflow API v1.1 format."
+		}
+	},
+	"arguments": {
+		"execute": {
+			"inArguments": [{
+				"myInArgument": "inArgument coming from iframe"
+			}],
+			"outArguments": [],
+			"url": "https://some-endpoint.com/execute"
+		}
+	},
+	"configurationArguments": {
+		"save": {
+			"url": "URI/for/your/activity/save"
+		},
+		"publish": {
+			"url": "URI/for/your/activity/publish"
+		},
+		"validate": {
+			"url": "URI/for/your/activity/validate"
+		},
+		"stop": {
+			"url": "URI/for/your/activity/stop"
+		}
+	},
+	"wizardSteps": [{
+			"label": "Step 1",
+			"key": "step1"
+		},
+		{
+			"label": "Step 2",
+			"key": "step2"
+		},
+		{
+			"label": "Step 3",
+			"key": "step3"
+		},
+		{
+			"label": "Step 4",
+			"key": "step4",
+			"active": false
+		}
+	],
+	"userInterfaces": {
+		"configModal": {
+			"height": 200,
+			"width": 300,
+			"fullscreen": true
+		}
+	},
+	"schema": {
+		"arguments": {
+			"execute": {
+				"inArguments": [{
+					"myInArgument": {
+						"dataType": "<some data type>",
+						"isNullable": false,
+						"direction": "in"
+					}
+				}],
+				"outArguments": []
+			}
+		}
+	}
 }
