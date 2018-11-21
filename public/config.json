@@ -75,15 +75,7 @@
                         }
                     }
                 ],
-                "outArguments": [
-                    {
-                        "foundSignupDate": {
-                            "dataType": "Date",
-                            "direction": "out",
-                            "access": "visible"
-                        }
-                    }
-                ]
+                "outArguments": []
             }
         }
     }
